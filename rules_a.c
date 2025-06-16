@@ -6,7 +6,7 @@
 /*   By: celal <celal@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 17:06:28 by hugozlu           #+#    #+#             */
-/*   Updated: 2025/06/16 15:53:14 by celal            ###   ########.fr       */
+/*   Updated: 2025/06/16 20:23:45 by celal            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,24 +77,21 @@ void	ft_rra(t_stack **a)
 	write(1, "rra\n", 4);
 }
 
-void	ft_rrr_sub(t_stack **b)
+void	ft_rr(t_stack **a, t_stack **b)
 {
 	t_stack	*tmp;
-	int		i;
 
-	i = 0;
-	tmp = *b;
-	while ((*b)->next)
-	{
-		i++;
-		*b = (*b)->next;
-	}
-	(*b)->next = tmp;
-	while (i > 1)
-	{
-		tmp = tmp->next;
-		i--;
-	}
+	if (!*a || !((*a)->next) || !*b || !((*b)->next))
+		return ;
+	tmp = *a;
+	*a = ft_lstlast(*a);
+	(*a)->next = tmp;
+	*a = tmp->next;
 	tmp->next = NULL;
-	write(1, "rrr\n", 4);
+	tmp = *b;
+	*b = ft_lstlast(*b);
+	(*b)->next = tmp;
+	*b = tmp->next;
+	tmp->next = NULL;
+	write(1, "rr\n", 3);
 }

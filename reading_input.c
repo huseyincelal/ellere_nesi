@@ -6,7 +6,7 @@
 /*   By: hugozlu <hugozlu@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/18 09:03:18 by hugozlu           #+#    #+#             */
-/*   Updated: 2025/06/18 09:03:19 by hugozlu          ###   ########.fr       */
+/*   Updated: 2025/06/18 16:43:03 by hugozlu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,8 @@ int	ft_atoi_similar(const char *str, t_stack *a, char **tmp)
 	{
 		if (*str == '-')
 			mod = -1;
-		str++;
+		if (str[1])
+			str++;
 	}
 	while (*str)
 	{
@@ -58,7 +59,7 @@ t_stack	*ft_sub_process(char **argv)
 		ft_add_back(&a, ft_stack_new(j));
 		i++;
 	}
-	ft_free(NULL, tmp, 1);
+	ft_free(NULL, tmp, 0);
 	free(tmp);
 	return (a);
 }

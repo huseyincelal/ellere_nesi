@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_sort_big.c                                      :+:      :+:    :+:   */
+/*   sort.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hugozlu <hugozlu@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/18 09:02:38 by hugozlu           #+#    #+#             */
-/*   Updated: 2025/06/18 09:23:44 by hugozlu          ###   ########.fr       */
+/*   Updated: 2025/06/18 17:32:37 by hugozlu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,18 +50,18 @@ void	ft_final_sort(t_stack **a)
 	if (first < third && third < second)
 	{
 		ft_sa(a);
-		ft_ra(a);
+		ft_ra(a, 1);
 	}
 	else if (second < first && first < third)
 		ft_sa(a);
 	else if (first < second && second > third && third < first)
-		ft_rra(a);
+		ft_rra(a, 1);
 	else if (first > second && second < third && first < third)
-		ft_ra(a);
+		ft_ra(a, 1);
 	else if (first > second && second > third)
 	{
 		ft_sa(a);
-		ft_rra(a);
+		ft_rra(a, 1);
 	}
 }
 
@@ -123,12 +123,12 @@ void	ft_sort(t_stack **stack_a)
 		if (i < ft_lstsize(*stack_a) - i)
 		{
 			while ((*stack_a)->nbr != ft_maxmin(*stack_a, 0))
-				ft_ra(stack_a);
+				ft_ra(stack_a, 1);
 		}
 		else
 		{
 			while ((*stack_a)->nbr != ft_maxmin(*stack_a, 0))
-				ft_rra(stack_a);
+				ft_rra(stack_a, 1);
 		}
 	}
 }

@@ -6,14 +6,14 @@
 /*   By: hugozlu <hugozlu@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/18 09:03:28 by hugozlu           #+#    #+#             */
-/*   Updated: 2025/06/18 09:03:29 by hugozlu          ###   ########.fr       */
+/*   Updated: 2025/06/18 17:31:08 by hugozlu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 #include <unistd.h>
 
-void	ft_ra(t_stack **a)
+void	ft_ra(t_stack **a, int flag)
 {
 	t_stack	*tmp;
 
@@ -24,7 +24,8 @@ void	ft_ra(t_stack **a)
 	(*a)->next = tmp;
 	*a = tmp->next;
 	tmp->next = NULL;
-	write(1, "ra\n", 3);
+	if (flag)
+		write(1, "ra\n", 3);
 }
 
 void	ft_sa(t_stack **a)
@@ -53,7 +54,7 @@ void	ft_pa(t_stack **a, t_stack **b)
 	write(1, "pa\n", 3);
 }
 
-void	ft_rra(t_stack **a)
+void	ft_rra(t_stack **a, int print)
 {
 	t_stack	*tmp;
 	int		i;
@@ -74,24 +75,15 @@ void	ft_rra(t_stack **a)
 		i--;
 	}
 	tmp->next = NULL;
-	write(1, "rra\n", 4);
+	if (print)
+		write(1, "rra\n", 4);
+	else
+		write(1, "rrr\n", 4);
 }
 
 void	ft_rr(t_stack **a, t_stack **b)
 {
-	t_stack	*tmp;
-
-	if (!*a || !((*a)->next) || !*b || !((*b)->next))
-		return ;
-	tmp = *a;
-	*a = ft_lstlast(*a);
-	(*a)->next = tmp;
-	*a = tmp->next;
-	tmp->next = NULL;
-	tmp = *b;
-	*b = ft_lstlast(*b);
-	(*b)->next = tmp;
-	*b = tmp->next;
-	tmp->next = NULL;
+	ft_ra(a, 0);
+	ft_rb(b, 0);
 	write(1, "rr\n", 3);
 }

@@ -6,7 +6,7 @@
 /*   By: hugozlu <hugozlu@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/18 09:03:09 by hugozlu           #+#    #+#             */
-/*   Updated: 2025/06/18 09:19:21 by hugozlu          ###   ########.fr       */
+/*   Updated: 2025/06/18 17:30:50 by hugozlu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,16 +24,14 @@ t_stack		*ft_stack_new(int content);
 int			ft_recurring(t_stack *a);
 void		ft_free(t_stack **a, char **arr, int show_error);
 t_stack		*ft_lstlast(t_stack *lst);
-void		ft_ra(t_stack **a);
-void		ft_rb(t_stack **b);
+void		ft_rra(t_stack **a, int print);
+void		ft_rrb(t_stack **b, int print);
+void		ft_ra(t_stack **a, int flag);
+void		ft_rb(t_stack **b, int flag);
 void		ft_sa(t_stack **a);
 void		ft_pa(t_stack **a, t_stack **b);
 void		ft_pb(t_stack **stack_a, t_stack **stack_b);
-void		ft_rra(t_stack **a);
 void		ft_rr(t_stack **a, t_stack **b);
-void		ft_rrr_sub(t_stack **b);
-void		ft_rrb(t_stack **b);
-void		ft_rrr(t_stack **a, t_stack **b);
 int			ft_lstsize(t_stack *lst);
 int			ft_maxmin(t_stack *a, int flag);
 int			ft_get_position(t_stack *stack, int target);

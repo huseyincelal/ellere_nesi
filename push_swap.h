@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: celal <celal@student.42.fr>                +#+  +:+       +#+        */
+/*   By: hugozlu <hugozlu@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/24 06:58:50 by hugozlu           #+#    #+#             */
-/*   Updated: 2025/06/16 16:18:45 by celal            ###   ########.fr       */
+/*   Created: 2025/06/18 09:03:09 by hugozlu           #+#    #+#             */
+/*   Updated: 2025/06/18 09:19:21 by hugozlu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,15 +32,15 @@ void		ft_pb(t_stack **stack_a, t_stack **stack_b);
 void		ft_rra(t_stack **a);
 void		ft_rr(t_stack **a, t_stack **b);
 void		ft_rrr_sub(t_stack **b);
+void		ft_rrb(t_stack **b);
 void		ft_rrr(t_stack **a, t_stack **b);
 int			ft_lstsize(t_stack *lst);
 int			ft_maxmin(t_stack *a, int flag);
-int			ft_find_index(t_stack *a, int nbr);
+int			ft_get_position(t_stack *stack, int target);
 int			ft_find_place_b(t_stack *stack_b, int nbr_push);
 int			ft_find_place_a(t_stack *a, int nbr);
 void		ft_sort(t_stack **stack_a);
 int			ft_checksorted(t_stack *stack_a);
-void		ft_sort_three(t_stack **stack_a);
 int			ft_case_rarb_a(t_stack *a, t_stack *b, int c);
 int			ft_case_rrarrb_a(t_stack *a, t_stack *b, int c);
 int			ft_case_rarrb_a(t_stack *a, t_stack *b, int c);
@@ -55,7 +55,6 @@ int			ft_apply_rarb(t_stack **a, t_stack **b, int c, char s);
 int			ft_apply_rrarrb(t_stack **a, t_stack **b, int c, char s);
 int			ft_apply_rrarb(t_stack **a, t_stack **b, int c, char s);
 int			ft_apply_rarrb(t_stack **a, t_stack **b, int c, char s);
-void		ft_rrb(t_stack **b);
 t_stack		*ft_process(int argc, char **argv);
 t_stack		*ft_sub_process(char **argv);
 

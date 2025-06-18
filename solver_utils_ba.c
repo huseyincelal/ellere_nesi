@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   solver_utils_ba.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: celal <celal@student.42.fr>                +#+  +:+       +#+        */
+/*   By: hugozlu <hugozlu@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/15 17:06:42 by hugozlu           #+#    #+#             */
-/*   Updated: 2025/06/15 06:42:37 by celal            ###   ########.fr       */
+/*   Created: 2025/06/18 09:03:50 by hugozlu           #+#    #+#             */
+/*   Updated: 2025/06/18 09:23:00 by hugozlu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,8 @@ int	ft_case_rarb_a(t_stack *a, t_stack *b, int c)
 	int	i;
 
 	i = ft_find_place_a(a, c);
-	if (i < ft_find_index(b, c))
-		i = ft_find_index(b, c);
+	if (i < ft_get_position(b, c))
+		i = ft_get_position(b, c);
 	return (i);
 }
 
@@ -29,8 +29,8 @@ int	ft_case_rrarrb_a(t_stack *a, t_stack *b, int c)
 	i = 0;
 	if (ft_find_place_a(a, c))
 		i = ft_lstsize(a) - ft_find_place_a(a, c);
-	if ((i < (ft_lstsize(b) - ft_find_index(b, c))) && ft_find_index(b, c))
-		i = ft_lstsize(b) - ft_find_index(b, c);
+	if ((i < (ft_lstsize(b) - ft_get_position(b, c))) && ft_get_position(b, c))
+		i = ft_lstsize(b) - ft_get_position(b, c);
 	return (i);
 }
 
@@ -39,8 +39,8 @@ int	ft_case_rarrb_a(t_stack *a, t_stack *b, int c)
 	int	i;
 
 	i = 0;
-	if (ft_find_index(b, c))
-		i = ft_lstsize(b) - ft_find_index(b, c);
+	if (ft_get_position(b, c))
+		i = ft_lstsize(b) - ft_get_position(b, c);
 	i = ft_find_place_a(a, c) + i;
 	return (i);
 }
@@ -52,6 +52,6 @@ int	ft_case_rrarb_a(t_stack *a, t_stack *b, int c)
 	i = 0;
 	if (ft_find_place_a(a, c))
 		i = ft_lstsize(a) - ft_find_place_a(a, c);
-	i = ft_find_index(b, c) + i;
+	i = ft_get_position(b, c) + i;
 	return (i);
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: celal <celal@student.42.fr>                +#+  +:+       +#+        */
+/*   By: hugozlu <hugozlu@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/15 17:06:32 by hugozlu           #+#    #+#             */
-/*   Updated: 2025/06/16 15:48:54 by celal            ###   ########.fr       */
+/*   Created: 2025/06/18 09:02:55 by hugozlu           #+#    #+#             */
+/*   Updated: 2025/06/18 09:02:55 by hugozlu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,7 @@ int	ft_recurring(t_stack *a)
 	return (0);
 }
 
-int	main(int argc, char **argv)//
+int	main(int argc, char **argv)
 {
 	t_stack	*a;
 

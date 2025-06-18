@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_sort_big.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: celal <celal@student.42.fr>                +#+  +:+       +#+        */
+/*   By: hugozlu <hugozlu@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/15 17:05:15 by hugozlu           #+#    #+#             */
-/*   Updated: 2025/06/16 16:20:24 by celal            ###   ########.fr       */
+/*   Created: 2025/06/18 09:02:38 by hugozlu           #+#    #+#             */
+/*   Updated: 2025/06/18 09:23:44 by hugozlu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,33 @@ void	ft_sort_b_till_3(t_stack **stack_a, t_stack **stack_b)
 	}
 }
 
+void	ft_final_sort(t_stack **a)
+{
+	int	first;
+	int	second;
+	int	third;
+
+	first = (*a)->nbr;
+	second = (*a)->next->nbr;
+	third = (*a)->next->next->nbr;
+	if (first < third && third < second)
+	{
+		ft_sa(a);
+		ft_ra(a);
+	}
+	else if (second < first && first < third)
+		ft_sa(a);
+	else if (first < second && second > third && third < first)
+		ft_rra(a);
+	else if (first > second && second < third && first < third)
+		ft_ra(a);
+	else if (first > second && second > third)
+	{
+		ft_sa(a);
+		ft_rra(a);
+	}
+}
+
 t_stack	*ft_sort_b(t_stack **stack_a)
 {
 	t_stack	*stack_b;
@@ -50,7 +77,7 @@ t_stack	*ft_sort_b(t_stack **stack_a)
 	if (ft_lstsize(*stack_a) > 3 && !ft_checksorted(*stack_a))
 		ft_sort_b_till_3(stack_a, &stack_b);
 	if (!ft_checksorted(*stack_a))
-		ft_sort_three(stack_a);
+		ft_final_sort(stack_a);
 	return (stack_b);
 }
 
@@ -92,7 +119,7 @@ void	ft_sort(t_stack **stack_a)
 	{
 		stack_b = ft_sort_b(stack_a);
 		stack_a = ft_sort_a(stack_a, &stack_b);
-		i = ft_find_index(*stack_a, ft_maxmin(*stack_a, 0));
+		i = ft_get_position(*stack_a, ft_maxmin(*stack_a, 0));
 		if (i < ft_lstsize(*stack_a) - i)
 		{
 			while ((*stack_a)->nbr != ft_maxmin(*stack_a, 0))
